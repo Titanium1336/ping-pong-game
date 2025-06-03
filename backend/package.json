@@ -1,0 +1,32 @@
+{
+  "name": "ping-pong-backend",
+  "version": "1.0.0",
+  "description": "Backend server for multiplayer ping pong game",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "tsx": "^4.19.4",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "websocket",
+    "game",
+    "ping-pong",
+    "multiplayer"
+  ],
+  "author": "",
+  "license": "MIT"
+}

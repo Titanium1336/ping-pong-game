@@ -1,0 +1,121 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f0f23;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Game container */
+.game-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Canvas styles */
+canvas {
+  border: 2px solid #8b5cf6;
+  border-radius: 0.5rem;
+  background-color: #1f2937;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+canvas:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+}
+
+/* Score animations */
+.score-update {
+  animation: scoreFlash 0.5s ease-in-out;
+}
+
+@keyframes scoreFlash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); background-color: #fbbf24; }
+  100% { transform: scale(1); }
+}
+
+/* Connection status */
+.connection-indicator {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Waiting animation */
+.waiting-dots::after {
+  content: '';
+  animation: waitingDots 1.5s infinite;
+}
+
+@keyframes waitingDots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60% { content: '...'; }
+  90%, 100% { content: '.'; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .game-container {
+    padding: 0.5rem;
+  }
+}
+
+/* Button styles for any future buttons */
+.game-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.game-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game-button:active {
+  transform: translateY(0);
+}
+
+/* Loading spinner for connection states */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #374151;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
